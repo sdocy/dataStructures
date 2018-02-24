@@ -1,3 +1,5 @@
+<canvas id="c"></canvas>
+
 <style>
 .side-text {
 	    margin-left: 20px;
@@ -14,12 +16,28 @@
 	.center {
 	    text-align: center;
 	}
+	
+	
 </style>
+
+<head>
+<link rel="stylesheet" type="text/css" href="matrix.css">
+<script src="matrix.js"></script>
+</head>
+
+
+<div>
+	<p>
+		<br/>
+	</p>
+</div>
+
+<h2 class="center">Data Structures and Algorithms<br/><br/></h2>
 
 <div style="display:inline-block;">
 	<p class="side-text">
 		I was trying to explain basic data structures and sorting/searching to my son who is an aspiring programmer and video<br/>
-	    game designer.  I thought it would be much easier to explain if I had a graphic display that showed what happens to the<br/>
+		game designer.  I thought it would be much easier to explain if I had a graphic display that showed what happens to the<br/>
 		data as the algorithm is executing.  So I came up with this idea and I am quite happy with how it has turned out so far.<br/><br/>
 		Currently, I have implemented three variations of bubble sort.  I directly instrument the algorithm code to highlight each<br/>
 		line of code as it is executed and to update the variable values, array contents and comparison count as needed.  See my<br/>
@@ -29,44 +47,39 @@
 		I will be using.<br/><br/>
 		I would love feedback on this prototype as well as the content I have provided for the algorithm.  I plan to eventually<br/>
 		include basic information in the beginning on the data structures themselves (arrays, linked lists, trees) and more<br/>
-		sorting, searching and misc. other algorithms.
+		sorting, searching and misc. other algorithms.<br/><br/>
 	</p>
-	<ul>
-		
-		
-	</ul>
 	
 	<div>
-		<a href="bubblesort1.png" target="_blank"><img class="small-image" src="bubblesort1.png"></a>
-		<a href="bubblesort2.png" target="_blank"><img class="small-image" src="bubblesort2.png"></a>
-		<a href="bubblesort3.png" target="_blank"><img class="small-image" src="bubblesort3.png"></a>
+		<a href="bubblesort1.png" target="_blank"><img class="small-image" style="border:3px dotted green" src="bubblesort1.png"></a>
+		<a href="bubblesort2.png" target="_blank"><img class="small-image" style="border:3px dotted green" src="bubblesort2.png"></a>
+		<a href="bubblesort3.png" target="_blank"><img class="small-image" style="border:3px dotted green" src="bubblesort3.png"></a>
 	</div>
 	
 </div>
 
-<div style="display:inline-block;vertical-align:top;">
+<div class="side-text" style="display:inline-block;vertical-align:top;">
     <video width="640" controls preload >
         <source src="bubblesort3.mp4">
 	</video>
 
-	<p>Play full screen so text is readable</p>
+	<p class="center">Play full screen so text is readable</p>
 
 </div>
 
 <div>
-<p>
-<br/><br/><br/>
-</p>
+	<p>
+		<br/><br/><br/>
+	</p>
 </div>
 
 
-<div style="display:inline-block;">
-	<p class="side-text">
-		v.1.1
-	</p>
+<div class="side-text" style="display:inline-block;">
+	<h2>
+		v.1.1 Feb 24, 2018<br/><br/>
+	</h2>
 	<ul>
 		<li>added keyboard navigation shortcuts to previous, next and tableOfContents buttons</li>
-		
 	</ul>
 	
 	
