@@ -53,6 +53,7 @@
   <ItemGroup>
      <Compile Include="Assets\scripts\arrayCtrl.cs" />
      <Compile Include="Assets\scripts\bubbleSort.cs" />
+     <Compile Include="Assets\scripts\keyboardShortcuts.cs" />
      <Compile Include="Assets\scripts\LevelManager.cs" />
      <Compile Include="Assets\scripts\programWalkThru.cs" />
  <Reference Include="UnityEngine.UI">

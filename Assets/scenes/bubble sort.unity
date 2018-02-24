@@ -388,6 +388,7 @@ GameObject:
   - component: {fileID: 199753023}
   - component: {fileID: 199753022}
   - component: {fileID: 199753021}
+  - component: {fileID: 199753024}
   m_Layer: 5
   m_Name: next page
   m_TagString: Untagged
@@ -499,6 +500,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 199753019}
+--- !u!114 &199753024
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 199753019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44c1ff321d5e8a4f9e23bec9aa8e715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myKeyPress: n
 --- !u!1 &209044814
 GameObject:
   m_ObjectHideFlags: 0
@@ -3467,6 +3480,7 @@ GameObject:
   - component: {fileID: 1015264481}
   - component: {fileID: 1015264480}
   - component: {fileID: 1015264479}
+  - component: {fileID: 1015264482}
   m_Layer: 5
   m_Name: to contents
   m_TagString: Untagged
@@ -3578,6 +3592,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1015264477}
+--- !u!114 &1015264482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1015264477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44c1ff321d5e8a4f9e23bec9aa8e715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myKeyPress: t
 --- !u!1 &1111452080
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,7 +4239,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Table of Contents
+  m_Text: (T)able of Contents
 --- !u!222 &1251398367
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5618,7 +5644,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Prev Page
+  m_Text: (P)rev Page
 --- !u!222 &1490943800
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6668,7 +6694,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Next Page
+  m_Text: (N)ext Page
 --- !u!222 &1874345836
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6760,6 +6786,7 @@ GameObject:
   - component: {fileID: 1882849921}
   - component: {fileID: 1882849920}
   - component: {fileID: 1882849919}
+  - component: {fileID: 1882849922}
   m_Layer: 5
   m_Name: prev page
   m_TagString: Untagged
@@ -6871,6 +6898,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1882849917}
+--- !u!114 &1882849922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1882849917}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b44c1ff321d5e8a4f9e23bec9aa8e715, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myKeyPress: p
 --- !u!1 &1902434184
 GameObject:
   m_ObjectHideFlags: 0
