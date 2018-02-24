@@ -14,3 +14,9 @@ the trick, at least for the small examples I will be using.
 I would love feedback on this prototype as well as the content I have provided for the algorithm. I plan to
 eventually include basic information in the beginning on the data structures themselves (arrays, linked
 lists, trees) and more sorting, searching, and misc. other algorothms.
+
+
+Note: the matrix effect on the project webpage is a very cool html, css, javascript implmentation of the
+matrix code screen that I found at:
+
+http://thecodeplayer.com/walkthrough/matrix-rain-animation-html5-canvas-javascript
