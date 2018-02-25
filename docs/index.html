@@ -17,7 +17,17 @@
 	    text-align: center;
 	}
 	
+	a:visited {
+		color: #99cc00;
+	}
 	
+	a:link {
+		color: #00ff00;
+	}
+	
+	a:hover {
+		color: #80ff80;
+	}
 </style>
 
 <head>
@@ -25,14 +35,10 @@
 <script src="matrix.js"></script>
 </head>
 
-
-<div>
-	<p>
-		<br/>
-	</p>
+<div align="center">
+	<h2><br/>Data Structures and Algorithms<br/></h2>
+	<p>Git repo: <a class="white-text" href="https://github.com/sdocy/dataStructures" target="_blank">https://github.com/sdocy/dataStructures</a></p><br/><br/>
 </div>
-
-<h2 class="center">Data Structures and Algorithms<br/><br/></h2>
 
 <div style="display:inline-block;">
 	<p class="side-text">
@@ -41,7 +47,7 @@
 		data as the algorithm is executing.  So I came up with this idea and I am quite happy with how it has turned out so far.<br/><br/>
 		Currently, I have implemented three variations of bubble sort.  I directly instrument the algorithm code to highlight each<br/>
 		line of code as it is executed and to update the variable values, array contents and comparison count as needed.  See my<br/>
-		gist at <a class="white-text" href="https://gist.github.com/sdocy/3665f924cfa629b0622315c17d9624c0" target="_blank"> bubbleSort()</a> for an example of the instrumentation I have done.<br/><br/>
+		gist at <a class="white-text" href="https://gist.github.com/sdocy/3665f924cfa629b0622315c17d9624c0" target="_blank">bubbleSort()</a> for an example of the instrumentation I have done.<br/><br/>
 		My next big step is to figure out how to visualize recursive calls in an understandable manner.  I am thinking that cloning<br/>
 		the program, array and variable texts views in separate, stacked windows might do the trick, at least for the small examples<br/>
 		I will be using.<br/><br/>
