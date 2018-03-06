@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Implements array visualization, including
+//    - initializing array
+//    - changing the value of an array element, and highlighting the value which changed
+//    - displaying array tag
+//    - clearing all array-tags for start of new algorithm execution
 public class arrayCtrl : MonoBehaviour {
     public const int maxArraySize = 13;
     public Text[] arrayText = new Text[maxArraySize];           // the array to sort
-    public Text[] arrayTagText = new Text[maxArraySize];        // matchint Texts above the array to display current array index value
+    public Text[] arrayTagText = new Text[maxArraySize];        // shows where the index of a for-loop counter currently points to within the array
 
     Color prevColor;                                            // original array text color
 
@@ -72,7 +77,7 @@ public class arrayCtrl : MonoBehaviour {
         arrayTagText[index].text = val;
     }
 
-    // make sure there are no index tags above the array
+    // make sure there are no index tags displayed above the array
     public void clearAllArrayTags() {
         int i;
 
@@ -82,7 +87,6 @@ public class arrayCtrl : MonoBehaviour {
         }
     }
 
-    // Use this for initialization
     void Start () {
         // capture original text color
         prevColor = arrayText[0].color;

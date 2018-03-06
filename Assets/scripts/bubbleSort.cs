@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+// Implements instrumented versions of the bubble sort sorting algorithm.
+// Three versions of bubble sort are currently implemented :
+//    - basic naive approach with two nested for-loops
+//    - switch outer for-loop for a while-loop to detect when array is sorted (no swaps occurred)
+//    - don't iterate over elements at the end of the array which are already in order
 public class bubbleSort : MonoBehaviour {
     const int arraySize = arrayCtrl.maxArraySize;
     public programWalkThru walkThru;
@@ -29,15 +34,32 @@ public class bubbleSort : MonoBehaviour {
     // /**/                                                             - precedes lines of the actual algorithm I am instrumenting 
 
 
+    //
+    // void bSort1(int[] arr, int size) {
+    //     int i, j, tmp;
+    //
+    //     for (i = 0; i < size - 1; i++) {
+    //         for (j = 0; j < size - 1; j++) {
+    //             if (arr[j] > arr[j + 1]) {
+    //                 tmp = arr[j];
+    //                 arr[j] = arr[j + 1];
+    //                 arr[j + 1] = tmp;
+    //             }
+    //         }
+    //     }
+    // }
+    //
     IEnumerator bSort1(int[] arr, int size) {
         int i, j, tmp;
 
+        // display function parameter variables
         walkThru.shine(0);
         walkThru.setVar(0, "size = " + size);
         arrCtrl.initArray(arr, size);
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+        // display local variables
         walkThru.shine(1);
         walkThru.setVar(1, "i = undefined");
         walkThru.setVar(2, "j = undefined");
@@ -45,43 +67,53 @@ public class bubbleSort : MonoBehaviour {
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+        // highlight outer for-loop, set value of counter variable
         walkThru.shine(3);
         walkThru.setVar(1, "i = 0");
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
         /**/for (i = 0; i < size - 1; i++) {
+
+            // highlight inner for-loop, set value of counter variable
             walkThru.shine(4);
             walkThru.setVar(2, "j = 0");
             arrCtrl.updateArrayTag(0, "j", size - 1);
             while (walkThru.isPaused) yield return null;
             yield return new WaitForSeconds(programWalkThru.walkDelay);
             /**/for (j = 0; j < size - 1; j++) {
-                numCompares++;
-                numComparesText.text = "# of comparisons : " + numCompares.ToString();
 
+                // add a comparison
+                addCompare();
+
+                // highlight conditional
                 walkThru.shine(5);
                 while (walkThru.isPaused) yield return null;
                 yield return new WaitForSeconds(programWalkThru.walkDelay);
                 /**/if (arr[j] > arr[j + 1]) {
+
                     /**/tmp = arr[j];
+                    // update variable value
                     walkThru.shine(6);
                     walkThru.setVar(3, "tmp = " + tmp);
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j] = arr[j + 1];
+                    // update variable value
                     walkThru.shine(7);
                     arrCtrl.updateArrayElem(j, arr[j].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j + 1] = tmp;
+                    // update variable value
                     walkThru.shine(8);
                     arrCtrl.updateArrayElem(j + 1, arr[j + 1].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
                 }
                 /**for**/
+                // highlight inner for-loop, set value of counter variable
                 walkThru.shine(4);
                 walkThru.setVar(2, "j = " + (j + 1));
                 arrCtrl.updateArrayTag(j + 1, "j", j);
@@ -89,86 +121,122 @@ public class bubbleSort : MonoBehaviour {
                 yield return new WaitForSeconds(programWalkThru.walkDelay);
             }
             /**for**/
-
+            // highlight outer for-loop, set value of counter variable
             walkThru.shine(3);
             walkThru.setVar(1, "i = " + (i + 1));
             while (walkThru.isPaused) yield return null;
             yield return new WaitForSeconds(programWalkThru.walkDelay);
         }
+        // highlight final closing bracket
         walkThru.shine(11);
 
+        // wrap up algorithm execution
         postProcessing();
     }
 
+
+    //
+    // void bSort2(int[] arr, int size) {
+    //     int j, tmp;
+    //     bool sorted = false;
+    //
+    //     while (!sorted) {
+    //         sorted = true;
+    //         for (j = 0; j < size - 1; j++) {
+    //             if (arr[j] > arr[j + 1]) {
+    //                 tmp = arr[j];
+    //                 arr[j] = arr[j + 1];
+    //                 arr[j + 1] = tmp;
+    //                 sorted = false;
+    //             }
+    //         }
+    //     }
+    // }
+    //
     IEnumerator bSort2(int[] arr, int size) {
         int j, tmp;
         bool sorted = false;
 
+        // display function parameter variables
         walkThru.shine(0);
         walkThru.setVar(0, "size = " + size);
         arrCtrl.initArray(arr, size);
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+        // display local variables
         walkThru.shine(1);
         walkThru.setVar(1, "j = undefined");
         walkThru.setVar(2, "tmp = undefined");
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+        // display local variables
         walkThru.shine(2);
         walkThru.setVar(3, "sorted = " + sorted);
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+        // highlight while-loop
         walkThru.shine(4);
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
         /**/while (!sorted) {
+
             /**/sorted = true;
+            // update variable value
             walkThru.shine(5);
             walkThru.setVar(3, "sorted = " + sorted);
             while (walkThru.isPaused) yield return null;
             yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+            // highlight for-loop, set value of counter variable
             walkThru.shine(6);
             walkThru.setVar(1, "j = 0");
             arrCtrl.updateArrayTag(0, "j", size - 1);
             while (walkThru.isPaused) yield return null;
             yield return new WaitForSeconds(programWalkThru.walkDelay);
             /**/for (j = 0; j < size - 1; j++) {
-                numCompares++;
-                numComparesText.text = "# of comparisons : " + numCompares.ToString();
 
+                // add a comparison
+                addCompare();
+
+                // highlight conditional
                 walkThru.shine(7);
                 while (walkThru.isPaused) yield return null;
                 yield return new WaitForSeconds(programWalkThru.walkDelay);
                 /**/if (arr[j] > arr[j + 1]) {
+
                     /**/tmp = arr[j];
+                    // update variable value
                     walkThru.shine(8);
                     walkThru.setVar(2, "tmp = " + tmp);
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j] = arr[j + 1];
+                    // update variable value
                     walkThru.shine(9);
                     arrCtrl.updateArrayElem(j, arr[j].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j + 1] = tmp;
+                    // update variable value
                     walkThru.shine(10);
                     arrCtrl.updateArrayElem(j + 1, arr[j + 1].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/sorted = false;
+                    // update variable value
                     walkThru.shine(11);
                     walkThru.setVar(3, "sorted = " + sorted);
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
                 }
                 /**for**/
+                // highlight for-loop, set value of counter variable
                 walkThru.shine(6);
                 walkThru.setVar(1, "j = " + (j + 1));
                 arrCtrl.updateArrayTag(j + 1, "j", j);
@@ -176,25 +244,50 @@ public class bubbleSort : MonoBehaviour {
                 yield return new WaitForSeconds(programWalkThru.walkDelay);
             }
             /**while**/
+            // highlight while-loop
             walkThru.shine(4);
             while (walkThru.isPaused) yield return null;
             yield return new WaitForSeconds(programWalkThru.walkDelay);
         }
+        // highlight final closing bracket
         walkThru.shine(14);
 
+        // wrap up algorithm execution
         postProcessing();
     }
 
+
+    //
+    // void bSort3(int[] arr, int size) {
+    //     int j, tmp, i = 0;
+    //     bool sorted = false;
+    //
+    //     while (!sorted) {
+    //         sorted = true;
+    //         for (j = 0; j < (size - 1 - i); j++) {
+    //             if (arr[j] > arr[j + 1]) {
+    //                 tmp = arr[j];
+    //                 arr[j] = arr[j + 1];
+    //                 arr[j + 1] = tmp;
+    //                 sorted = false;
+    //             }
+    //         }
+    //         i++;
+    //     }
+    // }
+    //
     IEnumerator bSort3(int[] arr, int size) {
         int j, tmp, i = 0;
         bool sorted = false;
 
+        // display function parameter variables
         walkThru.shine(0);
         walkThru.setVar(0, "size = " + size);
         arrCtrl.initArray(arr, size);
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+        // display local variables
         walkThru.shine(1);
         walkThru.setVar(1, "j = undefined");
         walkThru.setVar(2, "tmp = undefined");
@@ -202,90 +295,109 @@ public class bubbleSort : MonoBehaviour {
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+        // display local variables
         walkThru.shine(2);
         walkThru.setVar(4, "sorted = " + sorted);
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+        // need to initialize `j` internally here because it is used below to clear
+        // the array tag at the end of each for-loop iteration, just set it to 0
+        // for first iteration since there is no tag to clear
+        j = 0;
+
+        // highlight while-loop
         walkThru.shine(4);
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
-        /**/
-        while (!sorted) {
-            /**/
-            sorted = true;
+        /**/while (!sorted) {
+
+            /**/sorted = true;
+            // update variable value
             walkThru.shine(5);
             walkThru.setVar(4, "sorted = " + sorted);
             while (walkThru.isPaused) yield return null;
             yield return new WaitForSeconds(programWalkThru.walkDelay);
 
+            // highlight for-loop, set value of counter variable
             walkThru.shine(6);
             walkThru.setVar(1, "j = 0");
-            arrCtrl.clearAllArrayTags();
-            arrCtrl.updateArrayTag(0, "j", -1);
-
+            arrCtrl.updateArrayTag(0, "j", j);
             while (walkThru.isPaused) yield return null;
             yield return new WaitForSeconds(programWalkThru.walkDelay);
-            /**/
-            for (j = 0; j < (size - 1 - i); j++) {
-                numCompares++;
-                numComparesText.text = "# of comparisons : " + numCompares.ToString();
+            /**/for (j = 0; j < (size - 1 - i); j++) {
 
+                // add a comparison
+                addCompare();
+
+                // highlight conditional
                 walkThru.shine(7);
                 while (walkThru.isPaused) yield return null;
                 yield return new WaitForSeconds(programWalkThru.walkDelay);
-                /**/
-                if (arr[j] > arr[j + 1]) {
-                    /**/
-                    tmp = arr[j];
+                /**/if (arr[j] > arr[j + 1]) {
+
+                    /**/tmp = arr[j];
+                    // update variable value
                     walkThru.shine(8);
                     walkThru.setVar(2, "tmp = " + tmp);
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
-                    /**/
-                    arr[j] = arr[j + 1];
+                    /**/arr[j] = arr[j + 1];
+                    // update variable value
                     walkThru.shine(9);
                     arrCtrl.updateArrayElem(j, arr[j].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
-                    /**/
-                    arr[j + 1] = tmp;
+                    /**/arr[j + 1] = tmp;
+                    // update variable value
                     walkThru.shine(10);
                     arrCtrl.updateArrayElem(j + 1, arr[j + 1].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
-                    /**/
-                    sorted = false;
+                    /**/sorted = false;
+                    // update variable value
                     walkThru.shine(11);
                     walkThru.setVar(4, "sorted = " + sorted);
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
                 }
                 /**for**/
+                // highlight for-loop, set value of counter variable
                 walkThru.shine(6);
                 walkThru.setVar(1, "j = " + (j + 1));
                 arrCtrl.updateArrayTag(j + 1, "j", j);
                 while (walkThru.isPaused) yield return null;
                 yield return new WaitForSeconds(programWalkThru.walkDelay);
             }
-            /**/
-            i++;
+            /**/i++;
+            // update variable value
             walkThru.shine(14);
             walkThru.setVar(3, "i = " + i);
             while (walkThru.isPaused) yield return null;
             yield return new WaitForSeconds(programWalkThru.walkDelay);
 
             /**while**/
+            // highlight while-loop
             walkThru.shine(4);
             while (walkThru.isPaused) yield return null;
             yield return new WaitForSeconds(programWalkThru.walkDelay);
         }
+        // highlight final closing bracket
         walkThru.shine(15);
         
+        // wrap up algorithm execution
         postProcessing();
+    }
+
+    // count the comparison of array elements,
+    // the basic performance criteria for sorting algorithms,
+    // and update count displayed to screen
+    void addCompare() {
+        numCompares++;
+        numComparesText.text = "# of comparisons : " + numCompares.ToString();
     }
 
     // show "Finished." on screen and reset walk through state to allow restarting

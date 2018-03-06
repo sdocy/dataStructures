@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
+// Implements highlighting of algorithm code lines and setting/updating variables
 public class programWalkThru : MonoBehaviour {
     const int numLinesSupported = 27;                           // maximum number of program lines
     const int numVarsSupported = 10;                            // maximum number of variable lines (not counting array)
@@ -12,8 +14,8 @@ public class programWalkThru : MonoBehaviour {
     public static float walkDelay = watchDelay;                 // delay currently being used
     public bool isPaused = false;                               // is the wlkThru currently paused?
 
-    public Text[] program = new Text[numLinesSupported];
-    public Text[] variables = new Text[numVarsSupported];
+    public Text[] program = new Text[numLinesSupported];        // text objects displaying algorithm code
+    public Text[] variables = new Text[numVarsSupported];       // text objects disaplying variable values
     public Text forwardButton;
     public Text fastForwardButton;
     public Text stepThruText;                                   // tells user how to step through the text one line at a time
@@ -35,7 +37,7 @@ public class programWalkThru : MonoBehaviour {
         txt.color = clr;
     }
 
-
+    // set the variable at `line` to `txt`
     public void setVar(int line, string txt) {
         if (line < 0) return;
 
@@ -63,14 +65,14 @@ public class programWalkThru : MonoBehaviour {
         program[line].color = Color.white;
     }
 
-    // player pushed 'forward' buton, set walk through delay accordingly
+    // player pushed 'forward' button, set walk through delay accordingly
     public void setForward() {
         walkDelay = readDelay;
         fastForwardButton.color = Color.green;
         forwardButton.color = Color.white;
     }
 
-    // player pushed 'forward' buton, set walk through delay accordingly
+    // player pushed 'fast forward' button, set walk through delay accordingly
     public void setFastForward() {
         walkDelay = watchDelay;
         forwardButton.color = Color.green;
@@ -126,7 +128,6 @@ public class programWalkThru : MonoBehaviour {
         stopCB = cb;
     }
 
-    // Use this for initialization
     void Start() {
         // capture original text color
         prevColor = program[0].color;
