@@ -1,129 +1,99 @@
 <canvas id="c"></canvas>
 
-<style>
-	.text-left {
-		float: left;
-		width: 40%;
-	}
-
-	.side-text {
-	    margin-left: 20px;
-	}
-	
-    .small-image {
-	    width: 300px;
-	}
-	
-	.med-image {
-	    width: 500px;
-	}
-	
-	.center {
-	    text-align: center;
-	}
-	
-	a:visited {
-		color: #99cc00;
-	}
-	
-	a:link {
-		color: #00ff00;
-	}
-	
-	a:hover {
-		color: #80ff80;
-	}
-</style>
-
 <head>
-<link rel="stylesheet" type="text/css" href="matrix.css">
-<script src="matrix.js"></script>
+	<title>Data Structures and Algorithms</title>
+	<link rel="stylesheet" type="text/css" href="myStyles.css">
+	<link rel="stylesheet" type="text/css" href="matrix.css">
+	<script src="matrix.js"></script>
 </head>
 
-<div class="text-left side-text">
-		<p><br/><br/>Send me feedback, questions, or ideas</p>
-		<address>
-			<a href="mailto:sdocy@comcast.net">sdocy@comcast.net</a>
-		</address>
-</div>
+<html>	
+<body>
 
 <div>
-	<h2><br/>Data Structures and Algorithms<br/></h2>
-	<p>Git repo: <a class="white-text" href="https://github.com/sdocy/dataStructures" target="_blank">https://github.com/sdocy/dataStructures</a></p><br/><br/>
-</div>
-
-
-
-<div style="display:inline-block;">
-	<p class="side-text">
-		I was trying to explain basic data structures and sorting/searching to my son who is an aspiring programmer and video<br/>
-		game designer.  I thought it would be much easier to explain if I had a graphic display that showed what happens to the<br/>
-		data as the algorithm is executing.  So I came up with this idea and I am quite happy with how it has turned out so far.<br/><br/>
-		Currently, I have implemented three variations of bubble sort.  I directly instrument the algorithm code to highlight each<br/>
-		line of code as it is executed and to update the variable values, array contents and comparison count as needed.  See my<br/>
-		gist at <a class="white-text" href="https://gist.github.com/sdocy/3665f924cfa629b0622315c17d9624c0" target="_blank">bubbleSort()</a> for an example of the instrumentation I have done.<br/><br/>
-		My next big step is to figure out how to visualize recursive calls in an understandable manner.  I am thinking that cloning<br/>
-		the program, array and variable text objects in separate, stacked windows might do the trick, at least for the small examples<br/>
-		I will be using.<br/><br/>
-		I would love feedback on this prototype as well as the content I have provided for the algorithm.  I plan to eventually<br/>
-		include basic information in the beginning on the data structures themselves (arrays, linked lists, trees) and more<br/>
-		sorting, searching and misc. other algorithms.<br/><br/>
-	</p>
-	
-	<div>
-		<p class="center"><br/>Screenshots</p>
-		<a href="bubblesort1.png" target="_blank"><img class="small-image" style="border:3px dotted green" src="bubblesort1.png"></a>
-		<a href="bubblesort2.png" target="_blank"><img class="small-image" style="border:3px dotted green" src="bubblesort2.png"></a>
-		<a href="bubblesort3.png" target="_blank"><img class="small-image" style="border:3px dotted green" src="bubblesort3.png"></a>
+	<div class="float-left indentleft">
+			<p><br/><br/>Send me feedback, questions, or ideas</p>
+			<address class="center">
+				<a href="mailto:sdocy@comcast.net">sdocy@comcast.net</a>
+			</address>
 	</div>
 	
-</div>
-
-<div class="side-text" style="display:inline-block;vertical-align:top;">
-    <video width="640" controls preload >
-        <source src="bubblesort3.mp4">
-	</video>
-
-	<p class="center">Video of my program in action</p>
-	<p class="center">Play full screen so text is readable</p>
-
+	<div class="center">
+		<h2><br/>Data Structures and Algorithms<br/></h2>
+		<p>Git repo: <a class="white-text" href="https://github.com/sdocy/dataStructures" target="_blank">https://github.com/sdocy/dataStructures</a></p>
+	</div>
 </div>
 
 <div>
-	<p>
-		<br/><br/><br/>
-	</p>
+	<p><br/><br/><br/><br/></p>
+</div>
+
+<div>
+	<div class="text-left indentleft">
+		<p>
+			I was trying to explain basic data structures and sorting/searching to my son who is an aspiring programmer and video
+			game designer.  I thought it would be much easier to explain if I had a graphic display that showed what happens to the
+			data as the algorithm is executing.  So I came up with this idea and I am quite happy with how it has turned out so far.<br/><br/>
+			Currently, I have implemented three variations of bubble sort.  I directly instrument the algorithm code to highlight each
+			line of code as it is executed and to update the variable values, array contents and comparison count as needed.  See my
+			gist at <a class="white-text" href="https://gist.github.com/sdocy/3665f924cfa629b0622315c17d9624c0" target="_blank">bubbleSort()</a> for an example of the instrumentation I have done.<br/><br/>
+			My next big step is to figure out how to visualize recursive calls in an understandable manner.  I am thinking that cloning
+			the program, array and variable text objects in separate, stacked windows might do the trick, at least for the small examples
+			I will be using.<br/><br/>
+			I would love feedback on this prototype as well as the content I have provided for the algorithm.  I plan to eventually
+			include basic information in the beginning on the data structures themselves (arrays, linked lists, trees) and more
+			sorting, searching and misc. other algorithms.<br/><br/>
+		</p>
+	</div>
+	
+	<div class="text-right center">
+		<video width="80%" controls preload >
+			<source src="bubblesort3.mp4">
+		</video>
+
+		<p>Video of my program in action</p>
+		<p>Play full screen so text is readable</p>
+
+	</div>
+</div>
+
+<div class="indentleft">
+	<p><br/>Screenshots</p>
+	<a href="bubblesort1.png" target="_blank"><img class="small-image" style="border:3px dotted green" src="bubblesort1.png"></a>
+	<a href="bubblesort2.png" target="_blank"><img class="small-image" style="border:3px dotted green" src="bubblesort2.png"></a>
+	<a href="bubblesort3.png" target="_blank"><img class="small-image" style="border:3px dotted green" src="bubblesort3.png"></a>
+</div>
+
+<div>
+	<p><br/><br/><br/></p>
 </div>
 
 
-<div class="side-text" style="display:inline-block;">
+<div class="text-left indentleft">
 	<h2>
 		v.1.1 Feb 24, 2018<br/><br/>
 	</h2>
-	<ul class="side-text">
+	<ul class="indentleft">
 		<li>added keyboard navigation shortcuts to previous, next and tableOfContents buttons</li>
 	</ul>
 </div>
 
-
 <div>
-	<p>
-		<br/><br/><br/>
-	</p>
+	<p><br/><br/><br/></p>
 </div>
 
-<div class="side-text" style="display:inline-block;">
+<div class="text-left indentleft">
 	<h2>
-		v.1.2 Mar 5, 2018<br/><br/>
+		v.1.2<br/><br/>
 	</h2>
-	<ul class="side-text">
+	<ul class="indentleft">
 		<li>increased font size of program lines and variables lines from 18 to 20</li>
 		<li>set canvas to scale with window size for all three algorithm scenes</li>
 	</ul>
 </div>
 
 <div>
-	<p>
-		<br/><br/><br/>
-	</p>
+	<p><br/><br/><br/></p>
 </div>
+</body>
+</html>
