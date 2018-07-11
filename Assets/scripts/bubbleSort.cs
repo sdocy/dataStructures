@@ -12,9 +12,6 @@ public class bubbleSort : MonoBehaviour {
     const int arraySize = arrayCtrl.maxArraySize;
     public programWalkThru walkThru;
     public arrayCtrl arrCtrl;
-    public int numCompares = 0;
-    public Text numComparesText;            // Text for displaying the number of compares performed
-    public Text finishedText;               // Text to display "Finished."
     Coroutine runningCo;
 
 
@@ -83,7 +80,7 @@ public class bubbleSort : MonoBehaviour {
             /**/for (j = 0; j < size - 1; j++) {
 
                 // add a comparison
-                addCompare();
+                arrCtrl.addCompare();
 
                 // highlight conditional
                 walkThru.shine(5);
@@ -99,19 +96,20 @@ public class bubbleSort : MonoBehaviour {
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j] = arr[j + 1];
-                    // update variable value
+                    // update array element value
                     walkThru.shine(7);
                     arrCtrl.updateArrayElem(j, arr[j].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j + 1] = tmp;
-                    // update variable value
+                    // update array element value
                     walkThru.shine(8);
                     arrCtrl.updateArrayElem(j + 1, arr[j + 1].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
                 }
+
                 /**for**/
                 // highlight inner for-loop, set value of counter variable
                 walkThru.shine(4);
@@ -120,6 +118,7 @@ public class bubbleSort : MonoBehaviour {
                 while (walkThru.isPaused) yield return null;
                 yield return new WaitForSeconds(programWalkThru.walkDelay);
             }
+
             /**for**/
             // highlight outer for-loop, set value of counter variable
             walkThru.shine(3);
@@ -131,7 +130,7 @@ public class bubbleSort : MonoBehaviour {
         walkThru.shine(11);
 
         // wrap up algorithm execution
-        postProcessing();
+        walkThru.postProcessing();
     }
 
 
@@ -177,7 +176,7 @@ public class bubbleSort : MonoBehaviour {
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
 
-        // highlight while-loop
+        // highlight while-loop for initial while entry
         walkThru.shine(4);
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
@@ -199,7 +198,7 @@ public class bubbleSort : MonoBehaviour {
             /**/for (j = 0; j < size - 1; j++) {
 
                 // add a comparison
-                addCompare();
+                arrCtrl.addCompare();
 
                 // highlight conditional
                 walkThru.shine(7);
@@ -215,14 +214,14 @@ public class bubbleSort : MonoBehaviour {
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j] = arr[j + 1];
-                    // update variable value
+                    // update array element value
                     walkThru.shine(9);
                     arrCtrl.updateArrayElem(j, arr[j].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j + 1] = tmp;
-                    // update variable value
+                    // update array element value
                     walkThru.shine(10);
                     arrCtrl.updateArrayElem(j + 1, arr[j + 1].ToString());
                     while (walkThru.isPaused) yield return null;
@@ -235,6 +234,7 @@ public class bubbleSort : MonoBehaviour {
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
                 }
+
                 /**for**/
                 // highlight for-loop, set value of counter variable
                 walkThru.shine(6);
@@ -243,6 +243,7 @@ public class bubbleSort : MonoBehaviour {
                 while (walkThru.isPaused) yield return null;
                 yield return new WaitForSeconds(programWalkThru.walkDelay);
             }
+
             /**while**/
             // highlight while-loop
             walkThru.shine(4);
@@ -253,7 +254,7 @@ public class bubbleSort : MonoBehaviour {
         walkThru.shine(14);
 
         // wrap up algorithm execution
-        postProcessing();
+        walkThru.postProcessing();
     }
 
 
@@ -306,7 +307,7 @@ public class bubbleSort : MonoBehaviour {
         // for first iteration since there is no tag to clear
         j = 0;
 
-        // highlight while-loop
+        // highlight while-loop for initial while entry
         walkThru.shine(4);
         while (walkThru.isPaused) yield return null;
         yield return new WaitForSeconds(programWalkThru.walkDelay);
@@ -328,7 +329,7 @@ public class bubbleSort : MonoBehaviour {
             /**/for (j = 0; j < (size - 1 - i); j++) {
 
                 // add a comparison
-                addCompare();
+                arrCtrl.addCompare();
 
                 // highlight conditional
                 walkThru.shine(7);
@@ -344,14 +345,14 @@ public class bubbleSort : MonoBehaviour {
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j] = arr[j + 1];
-                    // update variable value
+                    // update array element value
                     walkThru.shine(9);
                     arrCtrl.updateArrayElem(j, arr[j].ToString());
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
 
                     /**/arr[j + 1] = tmp;
-                    // update variable value
+                    // update array element value
                     walkThru.shine(10);
                     arrCtrl.updateArrayElem(j + 1, arr[j + 1].ToString());
                     while (walkThru.isPaused) yield return null;
@@ -364,6 +365,7 @@ public class bubbleSort : MonoBehaviour {
                     while (walkThru.isPaused) yield return null;
                     yield return new WaitForSeconds(programWalkThru.walkDelay);
                 }
+
                 /**for**/
                 // highlight for-loop, set value of counter variable
                 walkThru.shine(6);
@@ -372,6 +374,7 @@ public class bubbleSort : MonoBehaviour {
                 while (walkThru.isPaused) yield return null;
                 yield return new WaitForSeconds(programWalkThru.walkDelay);
             }
+
             /**/i++;
             // update variable value
             walkThru.shine(14);
@@ -389,24 +392,10 @@ public class bubbleSort : MonoBehaviour {
         walkThru.shine(15);
         
         // wrap up algorithm execution
-        postProcessing();
+        walkThru.postProcessing();
     }
 
-    // count the comparison of array elements,
-    // the basic performance criteria for sorting algorithms,
-    // and update count displayed to screen
-    void addCompare() {
-        numCompares++;
-        numComparesText.text = "# of comparisons : " + numCompares.ToString();
-    }
 
-    // show "Finished." on screen and reset walk through state to allow restarting
-    void postProcessing() {
-        // display "Finshed." on screen
-        finishedText.gameObject.SetActive(true);
-
-        walkThru.programFinished();
-    }
 
     // execute the specified version of the algorithm
     public void execProg(int version) {
@@ -415,9 +404,6 @@ public class bubbleSort : MonoBehaviour {
 
         // in case we are restarting after stopping walkThru
         arrCtrl.clearAllArrayTags();
-        numCompares = 0;
-        numComparesText.text = "# of comparisons : " + numCompares.ToString();
-        finishedText.gameObject.SetActive(false);
 
         switch (version) {
             case 1:
@@ -445,7 +431,5 @@ public class bubbleSort : MonoBehaviour {
         // give the walkThru code the functions to call for starting and stopping execution
         walkThru.setExecCallBack(execProg);
         walkThru.setStopCallBack(stopProg);
-
-        finishedText.gameObject.SetActive(false);
     }
 }

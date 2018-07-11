@@ -20,6 +20,7 @@ public class programWalkThru : MonoBehaviour {
     public Text fastForwardButton;
     public Text stepThruText;                                   // tells user how to step through the text one line at a time
     public Button startButton;
+    public Text finishedText;               // Text to display "Finished."
 
     int prevShineLine = -1;                             // the line that was previously shined, need to return it to original color
     Color prevColor;                                    // original program text color
@@ -94,6 +95,7 @@ public class programWalkThru : MonoBehaviour {
     public void execProgram(int version) {
         if (!running) {
             // walkThru not started yet, start it
+            finishedText.gameObject.SetActive(false);
             startButton.GetComponentInChildren<Text>().text = "Pause";
             running = true;
             execCB(version);
@@ -112,8 +114,16 @@ public class programWalkThru : MonoBehaviour {
         }
     }
 
+    // show "Finished." on screen and reset walk through state to allow restarting
+    public void postProcessing() {
+        // display "Finshed." on screen
+        finishedText.gameObject.SetActive(true);
+
+        programFinished();
+    }
+
     // program has completed, set it up so user can restart if they want
-    public void programFinished() {
+    void programFinished() {
         startButton.GetComponentInChildren<Text>().text = "Restart";
         running = false;
     }
@@ -131,5 +141,6 @@ public class programWalkThru : MonoBehaviour {
     void Start() {
         // capture original text color
         prevColor = program[0].color;
+        finishedText.gameObject.SetActive(false);
     }
 }

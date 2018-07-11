@@ -20,3 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/scenes/bubble sort 3.unity
     guid: c2bd5f438256a8b419d10ea499815f9d
+  - enabled: 1
+    path: Assets/scenes/searching.unity
+    guid: 39ac25eaed40b4f48b9b3cef6845c641
+  - enabled: 1
+    path: Assets/scenes/binary search iterative.unity
+    guid: a2d89e6c6d6d2904cb2fce17fca3dc6b

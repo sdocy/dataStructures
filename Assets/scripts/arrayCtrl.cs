@@ -13,6 +13,9 @@ public class arrayCtrl : MonoBehaviour {
     public Text[] arrayText = new Text[maxArraySize];           // the array to sort
     public Text[] arrayTagText = new Text[maxArraySize];        // shows where the index of a for-loop counter currently points to within the array
 
+    int numCompares = 0;
+    public Text numComparesText;            // Text for displaying the number of compares performed
+
     Color prevColor;                                            // original array text color
 
     // change the color of a Text after a delay
@@ -78,6 +81,7 @@ public class arrayCtrl : MonoBehaviour {
     }
 
     // make sure there are no index tags displayed above the array
+    // and reset the number of comparisons
     public void clearAllArrayTags() {
         int i;
 
@@ -85,6 +89,17 @@ public class arrayCtrl : MonoBehaviour {
         {
             arrayTagText[i].text = "";
         }
+
+        numCompares = 0;
+        numComparesText.text = "# of comparisons : " + numCompares.ToString();
+    }
+
+    // count the comparison of array element to our value,
+    // the basic performance criteria for search algorithms,
+    // and update count displayed to screen
+    public void addCompare() {
+        numCompares++;
+        numComparesText.text = "# of comparisons : " + numCompares.ToString();
     }
 
     void Start () {
